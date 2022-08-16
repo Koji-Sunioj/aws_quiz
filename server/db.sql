@@ -73,6 +73,13 @@ COPY public.flash_cards (id, term, description, category) FROM stdin;
 2	Amazon Athena	Serverless interactive query service that analyzes data in Amazon S3 using standard SQL. Supports other formats like JSON or parquet. Can integrate with quicksight, and uses Data Catalog to store db metadata.	analytics
 3	Amazon Glue	Managed, serverless ETL service on Spark environment that automates data preparation for analytics. It discovers data via Data Catalog, generates ETL code (Python, Scala) to transform from source to target schema. Can use S3, Redshift warehouse or databases. EMR and Redshift can be used with it. Can be done via console.	analytics
 4	Amazon Kinesis	Collects, processes, and analyzes real-time, streaming data for insights. Data is processed in “shards”. The four Kinesis services are Video, Data, Data Firehose and Data Analytics.	analytics
+5	Amazon CloudWatch	System wide performance monitoring service for resources (e.g. ec2, databases, metrics from apps). Can aggregate metrics via graphs, monitor logs, set alarms, send emails on changes and automatically react to them. Can use cloudtrail logs. Can be accessed with CLI, SDK or console among others. Data is retained in various time periods. Is set by default on some resources, and price varies by free or charged depending on chosen service to monitor.	monitoring
+6	Amazon CloudTrail	Records user activity from api calls in account, to log file in S3. Used for auditing for user actions. Can be done with SDK, console or CLI, CloudFormation. It is enabled by default, one per account although can be consolidated from multiple accounts. Can also determine if log file was manipulated.	monitoring
+7	Amazon Route 53	DNS Service, such as registration, translate name to IP address. Checks health via automated requests. Sends users to best endpoint, handles failover, integrates with ELB, S3 and CloudFront.	cdn and dns
+8	Amazon CloudTrail	CDN to cache content (media, apps, apis) in edge locations across locations, so users can access them quickly. Gives security against DDOS. Locations are determined by distance to user, and are not associated with regions or AZs.	cdn and dns
+12	The 6 Advantages of Cloud	1. Trade capital expense for variable expense.\n2. Benefit from massive economies of scale.\n 3. Stop guessing about capacity.\n4. Increase speed and agility.\n5. Stop spending money running and maintaining data centers.\n6. Go global in minutes.	cloud concepts
+13	Cloud Computing Models	1. Infrastructure as a service (IaaS) - contains resources for building and configuring network\n2. Platform as a service (PaaS) - no need worry about infra. can focus on app.\n3. Software as a service (SaaS) - finished software product.	cloud concepts
+14	Types of Cloud Deployment	1. Public Cloud – takes advantage of cloud services, usually migrated e.g. AWS, Microsoft Azure, Google Cloud Platform (GCP).\n2. Hybrid Cloud – a mixture of public and private clouds. On premisis connection to cloud is common.\n3. Private Cloud (on-premises) – a cloud managed in your own data center, usually legacy method e.g. Hyper-V, OpenStack, VMware.	cloud concepts
 \.
 
 
@@ -80,7 +87,7 @@ COPY public.flash_cards (id, term, description, category) FROM stdin;
 -- Name: flash_cards_id_seq; Type: SEQUENCE SET; Schema: public; Owner: my_user
 --
 
-SELECT pg_catalog.setval('public.flash_cards_id_seq', 4, true);
+SELECT pg_catalog.setval('public.flash_cards_id_seq', 14, true);
 
 
 --
