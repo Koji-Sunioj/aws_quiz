@@ -20,7 +20,7 @@ const CategoryPage = () => {
   useEffect(() => {
     fetchCategory(category);
   }, [category]);
-
+  console.log(terms);
   const isCatFetched = terms !== null && terms.length > 0;
 
   const unHideCategory = (id) => {
