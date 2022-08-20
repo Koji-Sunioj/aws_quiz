@@ -20,7 +20,7 @@ const CategoryPage = () => {
   useEffect(() => {
     fetchCategory(category);
   }, [category]);
-  console.log(terms);
+
   const isCatFetched = terms !== null && terms.length > 0;
 
   const unHideCategory = (id) => {
@@ -53,7 +53,7 @@ const CategoryPage = () => {
             >
               {term.term}
             </h2>
-            <p hidden={term.hidden}>{term.description}</p>
+            <p hidden={term.hidden}>{term.description.replace(/\n/g, "\\n")}</p>
           </Row>
         ))}
     </>
