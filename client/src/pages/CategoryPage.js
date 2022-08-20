@@ -53,7 +53,7 @@ const CategoryPage = () => {
             >
               {term.term}
             </h2>
-            <p hidden={term.hidden}>{term.description.replace(/\n/g, "\\n")}</p>
+            <p hidden={term.hidden}>{term.description}</p>
           </Row>
         ))}
     </>

@@ -112,12 +112,18 @@ COPY public.flash_cards (id, term, description, category) FROM stdin;
 44	AWS Direct Connect (DX)	Connect a customer’s on-premises sites to AWS. Data transmitted through private network between AWS and customer. Can be configured with more virtual interfaces (VIFs); public VIF accesses VPC and public to services like S3, EC2. Can connect to all Azs. Charged by port hours and data transfer, available in different speeds.	networking
 45	AWS Global Accelerator	Optimizes path from users to applications. Monitors health of endpoints and redirects to healthy instance if one goes bad.	networking
 46	AWS Outposts	Managed service that offers AWS infra, services, APIs, and to on prem as hybrid. Can access services and resources in region to build locally.	networking
-47	IAM Users	Entity that represents a person or service. Can be assigned access key ID and secret access key api calls or password. Can have up to 5000 users per AWS account. Has friendly name and globally unique ARN. A unique ID is also created. Access key needs to be regenerated if lost.	iam
-48	Groups	Collection of users and with policies.	iam
-49	Roles	Delegate permissions via policy for users and services without permanent credentials like password or access key. Permissions can be temporary. Can also be given to user via third party login. Can also be assumed by EC2 instance. Trust policy specifies account that are allowed for role. 	iam
-50	Policies	JSON documents that define permission via key value pair. All permissions are implicitly denied by default. Can use IAM policy simulator.	iam
-51	AWS Security Token Service (AWS STS)	Web service that enables temporary credentials for IAM or federated users.	iam
-52	Best Practices	1. Lock root user access keys.2. Create individual IAM users and assign to group.\\n3. Use AWS defined policies.\\n4. Grant least privilege.\\n5. Use access levels to review IAM permissions.\\n6.Use strong password policy for users.\\n7. Enable MFA.\\n8. Use roles for applications on EC2 instances.\\n9. Delegate roles instead credentials.\\n10. Rotate credentials regularly.\\n11. Remove unnecessary credentials.\\n12. Use policy conditions for extra security.\\n13. Monitor activity in your AWS account.	iam
+77	IAM Users	Entity that represents a person or service. Can be assigned access key ID and secret access key api calls or password. Can have up to 5000 users per AWS account. Has friendly name and globally unique ARN. A unique ID is also created. Access key needs to be regenerated if lost.	iam
+78	Groups	Collection of users and with policies.	iam
+79	Roles	Delegate permissions via policy for users and services without permanent credentials like password or access key. Permissions can be temporary. Can also be given to user via third party login. Can also be assumed by EC2 instance. Trust policy specifies account that are allowed for role. 	iam
+80	Policies	JSON documents that define permission via key value pair. All permissions are implicitly denied by default. Can use IAM policy simulator.	iam
+81	AWS Security Token Service (AWS STS)	Web service that enables temporary credentials for IAM or federated users.	iam
+82	Best Practices	1. Lock root user access keys.\n2. Create individual IAM users and assign to group.\n3. Use AWS defined policies.\n4. Grant least privilege.\n5. Use access levels to review IAM permissions.\n6.Use strong password policy for users.\n7. Enable MFA.\n8. Use roles for applications on EC2 instances.\n9. Delegate roles instead credentials.\n10. Rotate credentials regularly.\n11. Remove unnecessary credentials.\n12. Use policy conditions for extra security.\n13. Monitor activity in your AWS account.	iam
+83	Regions	A region with 2 or more AZs and data centers, which is isolated from other regions. Data can be replicated across regions (with a fee).	global infrastructure
+84	Availability Zones	One or more isolated (failure independent i.e. low risk flood plain) data centers with direct, low-latency, high throughput, redundant connections between each other. AWS maps Availability Zones each AWS account.	global infrastructure
+85	Local Zones	Relay point for Compute, storage, database, and other services closer to end-users. Provides a fast, secure connection to AWS Region which has all sthe services.	global infrastructure
+86	AWS Wavelength	Method of deploying appication to AWS services in telecommunication providers own datacenters in the region to minimize latency.	global infrastructure
+87	AWS Outposts	Bring AWS services and infra to on prem. 	global infrastructure
+88	Edge Locations and Regional Edge Caches	Content Delivery Network (CDN) endpoints for CloudFront. There are more edge locations than regions (200). The service is between CloudFront Origin server and Edge Location with large cache.	global infrastructure
 \.
 
 
@@ -125,7 +131,7 @@ COPY public.flash_cards (id, term, description, category) FROM stdin;
 -- Name: flash_cards_id_seq; Type: SEQUENCE SET; Schema: public; Owner: my_user
 --
 
-SELECT pg_catalog.setval('public.flash_cards_id_seq', 52, true);
+SELECT pg_catalog.setval('public.flash_cards_id_seq', 88, true);
 
 
 --
