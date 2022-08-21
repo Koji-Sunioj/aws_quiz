@@ -124,6 +124,19 @@ COPY public.flash_cards (id, term, description, category) FROM stdin;
 86	AWS Wavelength	Method of deploying appication to AWS services in telecommunication providers own datacenters in the region to minimize latency.	global infrastructure
 87	AWS Outposts	Bring AWS services and infra to on prem. 	global infrastructure
 88	Edge Locations and Regional Edge Caches	Content Delivery Network (CDN) endpoints for CloudFront. There are more edge locations than regions (200). The service is between CloudFront Origin server and Edge Location with large cache.	global infrastructure
+89	Amazon Relational Database Service (RDS)	Service for relational database (OLTP) which support multiple engines, with Aurora being proprietary. No access to root OS. Can use read replicas, multi AZ (failover), can enable encryption at rest. Scaling via compute and storage possible is only possible upwards (except MS SQL). Charges apply for instance hours, storage per month, i/o. data egress and backup	databases
+90	Amazon DynamoDB	NoSQL database service with fast and scalable performance. Can used SSD for performance. Uses three replicas in AZs (failfure). Eventual consistency is good for read output, but changes from writes not immediate. Can also use strongly consistent read for high performance reflecting read and write.	databases
+91	Amazon RedShift	OLAP SQL Data warehouse to analyze large amount of data with SQL and Business Intelligence (BI) tools. It is 10x faster because of columnar indexing. Always keeps three replicas of data (compute node, S3 copy, incremetal backup).	databases
+92	Amazon ElastiCache	Web service for Memcached or Redis protocol-compliant server nodes. Use case is heavy read apps or compute intensive work, such as OLAP transactions (session data, db caching, bi dashboards)	databases
+93	Amazon EMR	Service to process vast amounts of data easily using Hadoop, Spark, etc for analysis or ETL.	databases
+102	Amazon EC2	Web service for virtual server “instances” using various OS. You pay only for used capacity. Can increase / decrease number of instances, integrates with othere services. Can launch from AMI, use ephemeral storage from instance root or EBS.	compute
+103	Types	1. On-demand: Low cost and flexible EC2 with unpredictable workloads.\n2. Reserved: apps with predictable usage, reserved capacity with up-front payment (cheaper). Standard Reserved Instances (RIs) provide up to 75% discount. Convertible RIs provide up to 54% discount and can change attributes of instance in that period. Scheduled are launched at a set time interval.\n3. Spot: apps with flexible start and end times. Low prices. Used for urgent need of compute.\n4. Dedicated hosts: a physical server which can be on demand or dedicated. Use cases are compliance or licensing requirement with predictable performance, isolaton. Can only attach on instance to host. One bill per host.\n5. Dedicated instances: phyical server, similar to dedicated host, but without controls of that service. Available as On-Demand, Reserved Instances, and Spot Instances. Billed per hour.	compute
+104	Amazon Elastic Container Service (ECS)	Container management compute that supports Docker containers which runs on cluster of EC2. Can schedule container in cluster. Two types are EC2 and Fargate: fargate provisions compute, cluster and infrastructure automatically while Ec2 is manual. You only pay for usage. Uses ECR which is a registry of containers.	compute
+105	AWS Lambda	Serverless compute without managing servers as code. Scales automatically. Use cases are data processing, file and stream processing, API backends.	compute
+106	Amazon LightSail	Provides compute, storage, networking and capabilities to deploy web applications. Includes virtual machines, containers, databases, CDN, load balancers, DNS management etc.	compute
+107	Amazon LightSail Databases	Seperate instance for running database. Comes with security options, automated backups. Comes in Standard and High Availability. Comes with standy database for failover.	compute
+108	AWS Elastic Beanstalk	Upload application code, and server automatically handles resource provisioning, load balancing, auto-scaling, and monitoring with common programming languages.	compute
+109	AWS Batch	Can run hundreds of thousands of computing jobs. Dynamically provisions according to quantity and can run concurrently.	compute
 \.
 
 
@@ -131,7 +144,7 @@ COPY public.flash_cards (id, term, description, category) FROM stdin;
 -- Name: flash_cards_id_seq; Type: SEQUENCE SET; Schema: public; Owner: my_user
 --
 
-SELECT pg_catalog.setval('public.flash_cards_id_seq', 88, true);
+SELECT pg_catalog.setval('public.flash_cards_id_seq', 109, true);
 
 
 --
